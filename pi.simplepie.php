@@ -10,17 +10,17 @@ class Plugin_simplepie extends Plugin {
   );
 
   public function index() {
-    $url            = $this->fetch_param('url', null);
-    $order_by_date  = $this->fetch_param('order_by_date', true, false, true);
-    $offset         = $this->fetch_param('offset', 0);
-    $cache          = $this->fetch_param('cache', false, false, true);
-    $timeout        = $this->fetch_param('timeout', 10);
+    $url            = $this->fetchParam('url', null);
+    $order_by_date  = $this->fetchParam('order_by_date', true, false, true);
+    $offset         = $this->fetchParam('offset', 0);
+    $cache          = $this->fetchParam('cache', false, false, true);
+    $timeout        = $this->fetchParam('timeout', 10);
     
-    $count          = $this->fetch_param('count', false);
-    $limit          = $this->fetch_param('limit', 10);
+    $count          = $this->fetchParam('count', false);
+    $limit          = $this->fetchParam('limit', 10);
     $limit = $limit == 'no' ? 0 : $limit;
 
-    if ($count && $this->fetch_param('limit', false) === false) {
+    if ($count && $this->fetchParam('limit', false) === false) {
       $limit = $count; # backwards compatibility
     }
 
@@ -49,8 +49,8 @@ class Plugin_simplepie extends Plugin {
           $arr = array();
           $arr['title']        = $item->get_title();
           $arr['permalink']    = $item->get_permalink();
-          $arr['date']         = $item->get_date(Statamic::get_date_format());
-          $arr['updated_date'] = $item->get_updated_date(Statamic::get_date_format());
+          $arr['date']         = $item->get_date(Config::getDateFormat());
+          $arr['updated_date'] = $item->get_updated_date(Config::getDateFormat());
           $arr['author']       = $item->get_author();
           $arr['category']     = $item->get_category();
           $arr['description']  = $item->get_description();
