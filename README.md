@@ -62,7 +62,7 @@ Turn caching on for faster page loads or to limit API/Feed requests.
 The maximum number of seconds to spend waiting to retrieve a feed.
 
 ## Variables
-Upon successfully retrieving a feed, the following default variables become available inside the the `{{ simplepie }}` tag pair.
+Upon successfully retrieving a feed, the following default variables become available inside the `{{ simplepie }}` tag pair.
 
 - {{ title }}
 - {{ permalink }}
